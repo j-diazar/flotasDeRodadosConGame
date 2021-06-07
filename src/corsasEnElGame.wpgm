@@ -1,7 +1,25 @@
 import wollok.game.*
+import rodados.*
 
 program corsasEnElGame {
 	// hacer las inicializaciones necesarias 
 	
+	game.title("Corsas")
+	game.height(10)
+	game.width(10)
+	game.ground("ground.png")
+	
+	var a1 = new Corsa(position=new Position(x=3, y=3),color="rojo")
+	
+	game.addVisual(a1)
+	
+	keyboard.right().onPressDo{ a1.moverADerecha() }
+	keyboard.left().onPressDo{ a1.moverAIzquierda() }
+	keyboard.up().onPressDo{ a1.moverAArriba() }
+	keyboard.down().onPressDo{ a1.moverAAbajo() }
+	
+	keyboard.r().onPressDo{ a1.color("rojo")}
+	keyboard.a().onPressDo{ a1.color("azul")}
+	keyboard.v().onPressDo{ a1.color("verde")}
 	game.start()
 }

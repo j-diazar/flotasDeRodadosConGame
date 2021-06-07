@@ -1,0 +1,22 @@
+import rodados.*
+import trafic.*
+import pedidos.*
+
+
+test "test pedidos" {
+	const cachito = new Corsa(color="rojo")
+	const pedido1 = new Pedidos(distancia=960,tiempoMaximo=8,cantidadDePasajeros=4)
+	pedido1.agregar("azul")
+	pedido1.agregar("negro")
+	const pedido2 = new Pedidos(distancia=960,tiempoMaximo=8,cantidadDePasajeros=6)
+	pedido2.agregar("rojo")
+	const pedido3 = new Pedidos(distancia=960,tiempoMaximo=6,cantidadDePasajeros=4)
+	pedido2.agregar("azul")
+	pedido2.agregar("negro")
+
+	//verificaciones
+	assert.that(pedido1.puedeSatisfacerPedido(cachito))
+	assert.notThat(pedido2.puedeSatisfacerPedido(cachito))
+	assert.notThat(pedido3.puedeSatisfacerPedido(cachito))
+
+}
